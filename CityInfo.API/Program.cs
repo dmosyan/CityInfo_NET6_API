@@ -15,24 +15,19 @@ namespace CityInfo.API
 
             var app = builder.Build();
 
-            //// Configure the HTTP request pipeline.
+            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
 
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
 
-            //app.UseAuthorization();
+            app.UseAuthorization();
 
 
-            //app.MapControllers();
-
-            app.Run(async (context) => 
-            { 
-                await context.Response.WriteAsync("City Info API - Running"); 
-            });
+            app.MapControllers();
 
             app.Run();
         }
