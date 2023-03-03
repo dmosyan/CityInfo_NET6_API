@@ -8,7 +8,12 @@ namespace CityInfo.API
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
+            // return not acceptable if the requested fomat is not supported
+            builder.Services.AddControllers(options =>
+            {
+                options.ReturnHttpNotAcceptable = true;
+            }).AddXmlDataContractSerializerFormatters();
+
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
