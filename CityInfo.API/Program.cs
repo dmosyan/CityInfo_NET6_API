@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.StaticFiles;
+
 namespace CityInfo.API
 {
     public class Program
@@ -16,6 +18,7 @@ namespace CityInfo.API
 
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddSingleton<FileExtensionContentTypeProvider>();
 
             var app = builder.Build();
 
