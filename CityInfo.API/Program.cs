@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.AspNetCore.
 
 namespace CityInfo.API
 {
@@ -14,7 +15,7 @@ namespace CityInfo.API
             builder.Services.AddControllers(options =>
             {
                 options.ReturnHttpNotAcceptable = true;
-            }).AddXmlDataContractSerializerFormatters();
+            }).AddNewtonsoftJson().AddXmlDataContractSerializerFormatters();
 
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
