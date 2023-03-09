@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.StaticFiles;
-using Microsoft.AspNetCore.
 
 namespace CityInfo.API
 {
