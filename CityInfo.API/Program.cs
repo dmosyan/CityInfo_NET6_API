@@ -35,6 +35,8 @@ namespace CityInfo.API
 #else
             builder.Services.AddTransient<IMailService, CloudMailService>();
 #endif
+            builder.Services.AddSingleton<CitiesDataStore>();
+            
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
