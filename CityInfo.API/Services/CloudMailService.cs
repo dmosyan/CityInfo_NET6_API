@@ -1,6 +1,6 @@
 ﻿namespace CityInfo.API.Services
 {
-    public class CloudMailService
+    public class CloudMailService : IMailService
     {
         private string _mailTo = "admin@test.com";
         private string _mailFrom = "noreply@test.com";
