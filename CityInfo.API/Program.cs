@@ -30,7 +30,7 @@ namespace CityInfo.API
             builder.Services.AddSwaggerGen();
             builder.Services.AddSingleton<FileExtensionContentTypeProvider>();
 
-            builder.Services.AddTransient<LocalMailService>();
+            builder.Services.AddTransient<IMailService, LocalMailService>();
 
             var app = builder.Build();
 
