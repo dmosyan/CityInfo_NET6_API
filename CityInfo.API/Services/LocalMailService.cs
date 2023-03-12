@@ -2,8 +2,8 @@
 {
     public class LocalMailService : IMailService
     {
-        private string _mailTo = string.Empty;
-        private string _mailFrom = string.Empty;
+        private readonly string _mailTo = string.Empty;
+        private readonly string _mailFrom = string.Empty;
 
         public LocalMailService(IConfiguration configuration)
         {
