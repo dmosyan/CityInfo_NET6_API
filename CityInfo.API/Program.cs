@@ -1,6 +1,7 @@
 using CityInfo.API.DbContexts;
 using CityInfo.API.Services;
 using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 
 namespace CityInfo.API
@@ -38,7 +39,8 @@ namespace CityInfo.API
 #endif
             builder.Services.AddSingleton<CitiesDataStore>();
 
-            builder.Services.AddDbContext<CityInfoContext>();
+            builder.Services.AddDbContext<CityInfoContext>(
+                dbContextOptions => dbContextOptions.UseSqlite("Data Source=CityInfo.db"));
             
             var app = builder.Build();
 
