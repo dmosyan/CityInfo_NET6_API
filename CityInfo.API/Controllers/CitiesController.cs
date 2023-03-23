@@ -31,7 +31,7 @@ namespace CityInfo.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<CityDto> GetCity(int id)
+        public async Task<ActionResult<CityDto>> GetCity(int id, bool includePointsOfInterest = false)
         {
             //var cityToReturn = _citiesDataStore.Cities
             //    .FirstOrDefault(c => c.Id == id);
@@ -42,6 +42,13 @@ namespace CityInfo.API.Controllers
             //}
 
             //return Ok(cityToReturn);
+
+            var city = await _cityInfoRepository.GetCityAsync(id, includePointsOfInterest);
+
+            if(city == null)
+            {
+                return NotFound();
+            }
 
             return Ok();
         }
